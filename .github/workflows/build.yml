@@ -29,8 +29,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install --force
-
+        run: |
+          npm install --force
+          npm install eslint-plugin-vue@latest --save-dev
+          
 
       - name: Testing on OS (${{ matrix.os }}) with Node.js (version ${{ matrix.node-version }}) attempt ${{ matrix.attempt }}
         run: |
